@@ -1,9 +1,7 @@
-// En Carts.jsx
-
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Carts = ({ id, title, description, img, onClick }) => {
+const Cards = ({ id, title, description, img, onClick }) => {
   return (
     <div className=" flex p-4 mb-4 mt-16">
       <div
@@ -30,11 +28,6 @@ const Carts = ({ id, title, description, img, onClick }) => {
             >
               Más Información
             </Link>
-            <button
-              className="btn btn-active btn-primary"
-            >
-              Agregar al carrito
-            </button>
           </div>
         </div>
       </div>
@@ -42,4 +35,4 @@ const Carts = ({ id, title, description, img, onClick }) => {
   );
 };
 
-export default Carts;
+export default Cards;

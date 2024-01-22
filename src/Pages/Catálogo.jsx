@@ -1,7 +1,5 @@
-// En Product.jsx
-
 import React, { useState, useEffect } from "react";
-import Carts from "../Compounents/Carts.jsx";
+import Cards from "../Compounents/Cards.jsx";
 import coffesData from "../Data/Coffes.js";
 import fondoLocal from "../assets/FondoProdwuct.jpg";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -75,7 +73,7 @@ const Product = () => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredCoffees.map((coffee) => (
-          <Carts
+          <Cards
             key={coffee.id}
             id={coffee.id}
             img={coffee.img}

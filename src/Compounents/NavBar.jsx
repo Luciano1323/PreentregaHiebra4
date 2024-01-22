@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CartWidget from './CartWidget';
 import { Link, useLocation } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ totalItems, cartItems }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -31,7 +31,6 @@ const NavBar = () => {
     width: '100%',
     transition: 'opacity 1s',
     backgroundColor: isScrolled || isItemContainer ? 'black' : 'rgba(255, 255, 255, 0)',
-    // Cambia el color a negro cuando se hace scroll o cuando estás en ItemContainer
   };
 
   const brandStyle = {
@@ -55,11 +54,11 @@ const NavBar = () => {
       </div>
       <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1 space-x-10">
-        <Link to="/" >
-        <li className='no-underline text-white hover:bg-transparent menu menu-horizontal px-1 space-x-10'> 
-            Inicio
-         </li>
-         </Link>
+          <Link to="/" >
+            <li className='no-underline text-white hover:bg-transparent menu menu-horizontal px-1 space-x-10'> 
+              Inicio
+            </li>
+          </Link>
           <li className='text-white'>
             <details>
               <summary className='hover:bg-transparent no-underline text-white'>Catalogo</summary>
@@ -87,7 +86,7 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end flex items-center space-x-4">
-        <CartWidget />
+        <CartWidget totalItems={totalItems} cartItems={cartItems} />
       </div>
     </div>
   );

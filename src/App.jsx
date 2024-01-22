@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './Compounents/NavBar';
 import Start from './Pages/Start';
-import Product from './Pages/Product';
-import ItemContainer from './Compounents/ItemContainer'; // Importa el componente ItemContainer
+import Product from './Pages/Catálogo';
+import ItemContainer from './Compounents/ItemListContainer'; // Importa el componente ItemContainer
 import Gallery from "./Pages/Gallery";
 import Clientes from "./Pages/Clientes"
 function App() {

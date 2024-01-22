@@ -1,7 +1,5 @@
-// En ItemContainer.jsx
-
 import React from "react";
-import ItemDetail from "./ItemDetail";
+import ItemDetail from "./ItemDetailContainer";
 import { useParams } from "react-router-dom";
 import coffesData from "../Data/Coffes";
 import FondoMasDetalles from "../assets/FondoMasDetalles.jpg";
@@ -33,10 +31,8 @@ const ItemContainer = () => {
         detailedDescription={selectedItem.detailedDescription}
         img={selectedItem.img}
       />
-      {/* Otro contenido del componente */}
     </div>
   );
 };
 
 export default ItemContainer;
-
