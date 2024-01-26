@@ -1,25 +1,30 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from './Compounents/NavBar';
-import Start from './Pages/Start';
-import Product from './Pages/Catálogo';
-import ItemContainer from './Compounents/ItemListContainer'; // Importa el componente ItemContainer
+import NavBar from "./Compounents/NavBar";
+import Start from "./Pages/Start";
+import Product from "./Pages/Catálogo";
+import ItemContainer from "./Compounents/ItemListContainer";
 import Gallery from "./Pages/Gallery";
-import Clientes from "./Pages/Clientes"
+import Clientes from "./Pages/Clientes";
+import { CartProvider } from "./Compounents/CartContext";
+import Cart from "./Compounents/Cart";
+import Checkout from "./Compounents/Checkout";
 function App() {
   return (
-    <Router>
-      <div>
+    <div>
+      <CartProvider>
         <NavBar />
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/catalogo/producto" element={<Product />} />
-          <Route path="/catalogo/producto/:id" element={<ItemContainer />} /> {/* Asegúrate de tener esta ruta */}
+          <Route path="/catalogo/producto/:id" element={<ItemContainer />} />
           <Route path="/Gallery" element={<Gallery />} />
           <Route path="/Clientes" element={<Clientes />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
-      </div>
-    </Router>
+      </CartProvider>
+    </div>
   );
 }
 

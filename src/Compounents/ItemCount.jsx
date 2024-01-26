@@ -1,26 +1,53 @@
-// ItemCount.jsx
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { CartContext } from './CartContext';
+import { Link } from 'react-router-dom';
 
-const ItemCount = ({ onAdd }) => {
-  const [cantidad, setCantidad] = useState(1);
+const ItemCount = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
+  const [contador, setContador] = useState(0);
+  const [agregado, setAgregado] = useState(false);
 
-  const handleIncrement = () => {
-    // Lógica para incrementar la cantidad
+  const sumar = () => {
+    if (contador < 10) {
+      setContador(contador + 1);
+    }
   };
 
-  const handleDecrement = () => {
-    // Lógica para decrementar la cantidad
+  const restar = () => {
+    if (contador > 0) {
+      setContador(contador - 1);
+    }
   };
 
-  const handleAgregar = () => {
-    onAdd(cantidad); // Emite el evento onAdd con la cantidad seleccionada
-    // Oculta el ItemCount si es necesario
+  const agregarAlCarrito = () => {
+    if (contador > 0) {
+      addToCart(product, contador);
+      setAgregado(true);
+    }
   };
 
   return (
-    <div>
-      {/* ... contenido del contador, botones, etc. */}
-      <button onClick={handleAgregar}>Agregar al carrito</button>
+    <div className="min-h-screen min-w-screen items-center bg-brown p-4">
+      {agregado ? (
+        <Link to="/cart" className=" bg-green-400 btn btn-active btn-green mt-4">
+          Ver Carrito
+        </Link>
+      ) : (
+        <>
+          <button onClick={sumar} className="btn btn-active btn-green mt-4">
+            +
+          </button>
+          <span className="btn btn-active btn-green mt-4">{contador}</span>
+          <button onClick={restar} className="btn btn-active btn-green mt-4">
+            -
+          </button>
+          <button onClick={agregarAlCarrito} className="btn btn-active btn-green mt-4">
+            Agregar al carrito ({contador})
+          </button>
+        </>
+      )}
     </div>
   );
 };
+
+export default ItemCount;

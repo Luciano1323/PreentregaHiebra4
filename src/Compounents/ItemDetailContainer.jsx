@@ -1,8 +1,8 @@
-// ItemDetail.js
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
-const ItemDetail = ({ title, detailedDescription, img, onAddToCart }) => {
+const ItemDetail = ({ title, detailedDescription, img, Price }) => {
   const backgroundImageStyle = {
     backgroundImage: `url('${img}')`,
     backgroundSize: "cover",
@@ -15,12 +15,8 @@ const ItemDetail = ({ title, detailedDescription, img, onAddToCart }) => {
       <div style={backgroundImageStyle} className="mb-8"></div>
       <h2 className="text-3xl mb-4">{title}</h2>
       <p>{detailedDescription}</p>
-      <button
-        className="btn btn-active btn-primary"
-        onClick={() => onAddToCart({ title, detailedDescription, img })}
-      >
-        Agregar al carrito
-      </button>
+      <p className="text-xl font-bold mb-4">Precio: ${Price}</p>
+
       <Link to="/catalogo/producto" className="btn btn-active btn-primary mt-4">
         Volver al Catálogo
       </Link>

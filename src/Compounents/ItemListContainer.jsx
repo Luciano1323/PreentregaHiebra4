@@ -1,8 +1,9 @@
-import React from "react";
-import ItemDetail from "./ItemDetailContainer";
-import { useParams } from "react-router-dom";
-import coffesData from "../Data/Coffes";
-import FondoMasDetalles from "../assets/FondoMasDetalles.jpg";
+import React from 'react';
+import ItemDetail from './ItemDetailContainer';
+import { useParams } from 'react-router-dom';
+import ItemCount from './ItemCount';
+import coffesData from '../Data/Coffes';
+import FondoMasDetalles from '../assets/FondoMasDetalles.jpg';
 
 const ItemContainer = () => {
   const { id } = useParams();
@@ -14,14 +15,14 @@ const ItemContainer = () => {
 
   const backgroundImageStyle = {
     backgroundImage: `url('${FondoMasDetalles}')`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    width: "100%",
-    height: "100%",
-    position: "fixed",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
     top: 0,
     left: 0,
-    padding: "20px",
+    padding: '20px',
   };
 
   return (
@@ -30,7 +31,9 @@ const ItemContainer = () => {
         title={selectedItem.title}
         detailedDescription={selectedItem.detailedDescription}
         img={selectedItem.img}
+        Price={selectedItem.Price}
       />
+      <ItemCount product={selectedItem} />
     </div>
   );
 };

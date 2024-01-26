@@ -11,10 +11,11 @@ const coffesData = [
   {
     id: 1,
     title: "Arte latte",
-    description: "Diseños y arte sobre el mejor cafe de Argentina",
+    description: "Diseños y arte sobre el mejor cafe de Argentina, pensa, soña, todo por el cafe.",
     detailedDescription: "Esta taza presenta impresionantes diseños de arte latte. Ideal para los amantes del arte y del café.",
     img: TazaDeCafeBlancaEspuma,
     category: "Cafe",
+    Price: 200, 
   },
   {
     id: 2,
@@ -23,14 +24,16 @@ const coffesData = [
     detailedDescription: "Organiza una experiencia única para hasta 8 personas. Incluye una selección de cafés y momentos memorables.",
     img: ExpPara8,
     category: "Experiencia",
+    Price: 200,
   },
   {
     id: 3,
     title: "Los tres amigos",
-    description: "Tres amigos, Tres cafes, un día inolvidable",
+    description: "Tres amigos, Tres cafes, un día inolvidable y una forma de fortalecer el vinculo.",
     detailedDescription: "Vive un día inolvidable con tus tres amigos, cada uno con su selección de café especial.",
     img: ExpParaAmigos,
     category: "Experiencia",
+    Price: 140,
   },
   {
     id: 4,
@@ -40,6 +43,7 @@ const coffesData = [
     detailedDescription: "Comparte momentos relajados con tu pareja disfrutando de este café frío diseñado para dos personas.",
     img: CafeHelado,
     category: "Experiencia",
+    Price: 55,
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ const coffesData = [
     detailedDescription: "Disfruta de la frescura única de este café frío diseñado para una experiencia individual e intensa.",
     img: CafeFrio,
     category: "Cafe",
+    Price: 30,
   },
   {
     id: 6,
@@ -56,6 +61,7 @@ const coffesData = [
     detailedDescription: "Experimenta la elegancia en cada sorbo con nuestra taza única, adornada con detalles dorados para un toque distintivo.",
     img: TazaAzaDorada,
     category: "Taza",
+    Price: 80,
   },
   {
     id: 7,
@@ -64,6 +70,7 @@ const coffesData = [
     detailedDescription: "Sumérgete en la nostalgia con nuestra taza vintage, diseñada para revivir el encanto del pasado con cada sorbo.",
     img: TazaVintage,
     category: "Taza",
+    Price: 40,
   },
   {
     id: 8,
@@ -72,6 +79,7 @@ const coffesData = [
     detailedDescription: "Descubre la elegancia del arte del té con nuestra taza exclusiva diseñada para llevar la experiencia más allá de las hojas.",
     img: TazaTe,
     category: "Taza",
+    Price: 30,
   },
 ];
 

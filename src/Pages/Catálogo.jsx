@@ -1,3 +1,4 @@
+// Importa el componente Cards
 import React, { useState, useEffect } from "react";
 import Cards from "../Compounents/Cards.jsx";
 import coffesData from "../Data/Coffes.js";
@@ -42,36 +43,44 @@ const Product = () => {
 
   return (
     <div
-      className="bg-cover bg-center min-h-screen p-8"
+      className="bg-cover bg-center p-8 relative"
       style={{ backgroundImage: `url(${fondoLocal})` }}
     >
-      <div className="flex justify-center space-x-4 p-4 mb-4 mt-16">
+      <div className="flex justify-center items-center space-x-4 fixed top-20 left-20 -right-0 z-10">
         <button
-          className="bg-primary"
+          className={`bg-primary ${
+            currentCategory === "all" ? "border-b-2 border-white" : ""
+          }`}
           onClick={() => navigate("/catalogo/producto?category=all")}
         >
           Todos
         </button>
         <button
-          className="bg-primary"
+          className={`bg-primary ${
+            currentCategory === "Cafe" ? "border-b-2 border-white" : ""
+          }`}
           onClick={() => navigate("/catalogo/producto?category=Cafe")}
         >
           Cafes
         </button>
         <button
-          className="bg-primary"
+          className={`bg-primary ${
+            currentCategory === "Taza" ? "border-b-2 border-white" : ""
+          }`}
           onClick={() => navigate("/catalogo/producto?category=Taza")}
         >
           Tazas
         </button>
         <button
-          className="bg-primary"
+          className={`bg-primary ${
+            currentCategory === "Experiencia" ? "border-b-2 border-white" : ""
+          }`}
           onClick={() => navigate("/catalogo/producto?category=Experiencia")}
         >
           Experiencias
         </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-10 pt-72">
         {filteredCoffees.map((coffee) => (
           <Cards
             key={coffee.id}
@@ -79,12 +88,15 @@ const Product = () => {
             img={coffee.img}
             title={coffee.title}
             description={coffee.description}
+            price={coffee.price}
             onClick={handleMoreInfoClick}
           />
         ))}
       </div>
       {selectedCoffee && (
-        <ItemContainer detailedDescription={selectedCoffee.detailedDescription} />
+        <ItemContainer
+          detailedDescription={selectedCoffee.detailedDescription}
+        />
       )}
     </div>
   );
