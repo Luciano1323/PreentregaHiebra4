@@ -1,4 +1,3 @@
-// Start.jsx
 import React from 'react';
 import Overlay from '../Compounents/Overlay';
 import FondoHero from '../assets/ImagenFondoHero2.jpg';

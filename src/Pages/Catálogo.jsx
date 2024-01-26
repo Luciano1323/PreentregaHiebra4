@@ -1,4 +1,3 @@
-// Importa el componente Cards
 import React, { useState, useEffect } from "react";
 import Cards from "../Compounents/Cards.jsx";
 import coffesData from "../Data/Coffes.js";
