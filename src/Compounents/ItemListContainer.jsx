@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetailContainer';
 import { useParams } from 'react-router-dom';
 import ItemCount from './ItemCount';
@@ -13,27 +13,51 @@ const ItemContainer = () => {
     return <p>Producto no encontrado</p>;
   }
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const backgroundImageStyle = {
     backgroundImage: `url('${FondoMasDetalles}')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: '100%',
-    height: '100%',
+    minHeight: '100vh',
     position: 'fixed',
     top: 0,
     left: 0,
     padding: '20px',
   };
 
+  const containerStyle = {
+    maxWidth: windowWidth > 600 ? '80%' : '20%', // Reduz el ancho en pantallas pequeñas
+    maxHeight: windowHeight > 100 ? '20%' : '100vh', // Reduz la altura en pantallas pequeñas
+    margin: '0 auto',
+  };
+
   return (
     <div style={backgroundImageStyle}>
-      <ItemDetail
-        title={selectedItem.title}
-        detailedDescription={selectedItem.detailedDescription}
-        img={selectedItem.img}
-        Price={selectedItem.Price}
-      />
-      <ItemCount product={selectedItem} />
+      <div style={containerStyle} className="item-container">
+        <ItemDetail
+          title={selectedItem.title}
+          detailedDescription={selectedItem.detailedDescription}
+          img={selectedItem.img}
+          Price={selectedItem.Price}
+          product={selectedItem}
+        />
+      </div>
     </div>
   );
 };

@@ -27,21 +27,21 @@ const ItemCount = ({ product }) => {
   };
 
   return (
-    <div className="min-h-screen min-w-screen items-center bg-brown p-4">
+    <div className="flex items-center bg-brown left- bottom-44">
       {agregado ? (
-        <Link to="/cart" className=" bg-green-400 btn btn-active btn-green mt-4">
+        <Link to="/cart" className=" bg-green-400 btn btn-active btn-green">
           Ver Carrito
         </Link>
       ) : (
         <>
-          <button onClick={sumar} className="btn btn-active btn-green mt-4">
+          <button onClick={sumar} className="btn btn-active btn-green">
             +
           </button>
-          <span className="btn btn-active btn-green mt-4">{contador}</span>
-          <button onClick={restar} className="btn btn-active btn-green mt-4">
+          <span className="btn btn-active btn-green">{contador}</span>
+          <button onClick={restar} className="btn btn-active btn-green">
             -
           </button>
-          <button onClick={agregarAlCarrito} className="btn btn-active btn-green mt-4">
+          <button onClick={agregarAlCarrito} className="btn btn-active btn-green ">
             Agregar al carrito ({contador})
           </button>
         </>

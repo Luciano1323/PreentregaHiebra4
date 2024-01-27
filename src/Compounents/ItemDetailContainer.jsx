@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "./CartContext";
+import ItemCount from "./ItemCount";
 
-const ItemDetail = ({ title, detailedDescription, img, Price }) => {
+const ItemDetail = ({ title, detailedDescription, img, Price, product }) => {
   const backgroundImageStyle = {
     backgroundImage: `url('${img}')`,
     backgroundSize: "cover",
@@ -11,15 +11,17 @@ const ItemDetail = ({ title, detailedDescription, img, Price }) => {
   };
 
   return (
-    <div className="p-20 bg-primary mb-4 mt-16">
-      <div style={backgroundImageStyle} className="mb-8"></div>
-      <h2 className="text-3xl mb-4">{title}</h2>
-      <p>{detailedDescription}</p>
-      <p className="text-xl font-bold mb-4">Precio: ${Price}</p>
-
-      <Link to="/catalogo/producto" className="btn btn-active btn-primary mt-4">
-        Volver al Catálogo
-      </Link>
+    <div className="p-8 bg-primary mb-4 mt-8 md:mt-16">
+      <div style={backgroundImageStyle} className="mb-4 md:mb-8"></div>
+      <div className="item-detail-content">
+        <h2 className="text-2xl md:text-3xl mb-2 md:mb-4">{title}</h2>
+        <p>{detailedDescription}</p>
+        <p className="text-lg md:text-xl font-bold mb-2 md:mb-4">Precio: ${Price}</p>
+        <ItemCount product={product} />
+        <Link to="/catalogo/producto" className="btn btn-active btn-primary mt-2 md:mt-4 bottom-10 md:bottom-16">
+          Volver al Catálogo
+        </Link>
+      </div>
     </div>
   );
 };
