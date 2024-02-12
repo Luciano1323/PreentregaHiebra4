@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ItemDetail from './ItemDetailContainer';
+import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import FondoMasDetalles from '../assets/FondoMasDetalles.jpg';
