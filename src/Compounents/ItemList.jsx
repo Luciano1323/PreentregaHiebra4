@@ -64,8 +64,8 @@ const ItemContainer = () => {
   };
 
   const containerStyle = {
-    maxWidth: windowWidth > 600 ? '80%' : '20%', // Reduz el ancho en pantallas pequeñas
-    maxHeight: windowHeight > 100 ? '20%' : '100vh', // Reduz la altura en pantallas pequeñas
+    maxWidth: windowWidth > 600 ? '80%' : '20%', 
+    maxHeight: windowHeight > 100 ? '20%' : '100vh', 
     margin: '0 auto',
   };
 
@@ -75,7 +75,7 @@ const ItemContainer = () => {
         <ItemDetail
           title={selectedItem.title}
           detailedDescription={selectedItem.detailedDescription}
-          img={selectedItem.img} // La imagen ahora se obtiene de los datos locales
+          img={selectedItem.img} 
           Price={selectedItem.Price}
           product={selectedItem}
         />

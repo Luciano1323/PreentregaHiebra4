@@ -25,7 +25,7 @@ const Cards = ({ id, title, description, img }) => {
           </p>
           <div className="card-actions justify-end">
             <Link
-              to={`/catalogo/producto/${id}`} // Agregar el id del producto a la URL
+              to={`/catalogo/producto/${id}`} 
               className="btn btn-active btn-primary text-xs sm:text-sm md:text-base lg:text-sm xl:text-xs"
             >
               Más Información

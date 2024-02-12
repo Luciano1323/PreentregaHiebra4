@@ -3,13 +3,13 @@ import Cards from "../Compounents/Cards.jsx";
 import fondoLocal from "../assets/FondoProdwuct.jpg";
 import { useNavigate } from "react-router-dom";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
-import coffesData from "../Data/Coffes.js"; // Importa los datos de las imágenes locales
+import coffesData from "../Data/Coffes.js"; 
 
 const Product = () => {
   const [filteredCoffees, setFilteredCoffees] = useState([]);
-  const [originalCoffees, setOriginalCoffees] = useState([]); // Almacena los productos originales
+  const [originalCoffees, setOriginalCoffees] = useState([]); 
   const [selectedCoffee, setSelectedCoffee] = useState(null);
-  const [loading, setLoading] = useState(true); // Variable de estado para el estado de carga
+  const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,12 +29,12 @@ const Product = () => {
             title: data.title,
           };
         });
-        setOriginalCoffees(coffeesDataFromFirebase); // Almacena los productos originales
+        setOriginalCoffees(coffeesDataFromFirebase); 
         setFilteredCoffees(coffeesDataFromFirebase);
-        setLoading(false); // Marca la carga como completa
+        setLoading(false); 
       } catch (error) {
         console.error("Error fetching coffees:", error);
-        setLoading(false); // Marca la carga como completa incluso en caso de error
+        setLoading(false);
       }
     };
 
@@ -49,13 +49,13 @@ const Product = () => {
 
   const filterByCategory = (category) => {
     const filtered = category === "all"
-      ? originalCoffees // Restaura los productos originales al seleccionar "Todos"
+      ? originalCoffees 
       : originalCoffees.filter(coffee => coffee.category === category);
     setFilteredCoffees(filtered);
   };
 
   if (loading) {
-    return <div>Cargando...</div>; // Muestra el cartel de "Cargando" mientras se cargan los datos
+    return <div>Cargando...</div>; 
   }
 
   return (
@@ -94,7 +94,7 @@ const Product = () => {
           const localCoffeeData = coffesData.find((localCoffee) => localCoffee.id === coffee.id);
           if (!localCoffeeData) {
             console.error(`No se encontró el café local para el café con ID ${coffee.id}`);
-            return null; // O maneja la situación de alguna otra manera
+            return null;
           }
           return (
             <Cards
