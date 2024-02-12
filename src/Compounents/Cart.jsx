@@ -13,7 +13,7 @@ const Cart = () => {
 
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="h-96 border-1|0 flex flex-col items-center justify-center bg-black">
       <h2 className="text-white text-center mb-6 text-3xl">
         Carrito de compras
       </h2>

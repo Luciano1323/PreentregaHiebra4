@@ -1,22 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetailContainer';
 import { useParams } from 'react-router-dom';
-import ItemCount from './ItemCount';
-import coffesData from '../Data/Coffes';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import FondoMasDetalles from '../assets/FondoMasDetalles.jpg';
+import coffesData from "../Data/Coffes.js";
 
 const ItemContainer = () => {
   const { id } = useParams();
-  const selectedItem = coffesData.find((item) => item.id === parseInt(id, 10));
-
-  if (!selectedItem) {
-    return <p>Producto no encontrado</p>;
-  }
-
+  const [selectedItem, setSelectedItem] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   useEffect(() => {
+    const fetchItem = async () => {
+      try {
+        const db = getFirestore();
+        const itemDoc = doc(db, 'coffesData', id);
+        const itemSnap = await getDoc(itemDoc);
+        if (itemSnap.exists()) {
+          const itemData = itemSnap.data();
+          setSelectedItem({ ...itemData, id: itemSnap.id, img: getImageFromLocalData(itemSnap.id) });
+        } else {
+          console.log('No such document!');
+        }
+      } catch (error) {
+        console.error('Error fetching item:', error);
+      }
+    };
+
+    const getImageFromLocalData = (itemId) => {
+      const item = coffesData.find(coffee => coffee.id === itemId);
+      return item ? item.img : null;
+    };
+
+    fetchItem();
+
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
       setWindowHeight(window.innerHeight);
@@ -27,7 +45,11 @@ const ItemContainer = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [id]);
+
+  if (!selectedItem) {
+    return <p>Cargando producto...</p>;
+  }
 
   const backgroundImageStyle = {
     backgroundImage: `url('${FondoMasDetalles}')`,
@@ -53,7 +75,7 @@ const ItemContainer = () => {
         <ItemDetail
           title={selectedItem.title}
           detailedDescription={selectedItem.detailedDescription}
-          img={selectedItem.img}
+          img={selectedItem.img} // La imagen ahora se obtiene de los datos locales
           Price={selectedItem.Price}
           product={selectedItem}
         />

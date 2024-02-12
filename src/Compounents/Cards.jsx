@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Cards = ({ id, title, description, img, onClick }) => {
+const Cards = ({ id, title, description, img }) => {
   return (
     <div className="flex p-4 mb-4 mt-16">
       <div
@@ -25,7 +25,7 @@ const Cards = ({ id, title, description, img, onClick }) => {
           </p>
           <div className="card-actions justify-end">
             <Link
-              to={`/catalogo/producto/${id}`}
+              to={`/catalogo/producto/${id}`} // Agregar el id del producto a la URL
               className="btn btn-active btn-primary text-xs sm:text-sm md:text-base lg:text-sm xl:text-xs"
             >
               Más Información
