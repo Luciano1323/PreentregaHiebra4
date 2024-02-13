@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Cards = ({ id, title, description, img }) => {
   return (
-    <div >
+    <div>
       <div
-        className="card flex w-full h-60 bg-cover bg-center bg-base-100 shadow-xl relative md:top-48 sm:top-80 lg:top-48"
+        className="card flex w-full h-60 bg-cover bg-center bg-base-100 shadow-xl relative md:top-48 sm:top-80 lg:top-0"
         style={{ backgroundImage: `url('${img}')`, zIndex: 1 }}
       >
         <div className="w-full h-full absolute bg-black opacity-50 z-20 "></div>
@@ -16,7 +16,7 @@ const Cards = ({ id, title, description, img }) => {
             className="w-full min-h-48 object-cover hidden"
           />
         </figure>
-        <div className="card-body z-30 p-4">
+        <div className="card-body z-30">
           <h2 className="card-title text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-lg font-bold mb-2 ">
             {title}
           </h2>

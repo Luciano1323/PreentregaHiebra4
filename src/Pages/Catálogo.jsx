@@ -42,10 +42,10 @@ const Product = () => {
 
   return (
     <div
-    className="bg-cover bg-center p-8 relative min-h-screen"s
+      className="bg-cover bg-center relative min-h-screen"
       style={{ backgroundImage: `url(${fondoLocal})` }}
     >
-      <div className="flex justify-center items-center space-x-4 fixed top-20 left-20 -right-0 z-10">
+      <div className="flex justify-center items-center space-x-4 fixed left-20 -right-0 z-10">
         <button
           className={`bg-primary ${
             currentCategory === "all" ? "border-b-2 border-white" : ""
@@ -79,7 +79,7 @@ const Product = () => {
           Experiencias
         </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-96">
         {/* Tarjetas de café */}
         {filteredCoffees.map((coffee) => (
           <Cards
